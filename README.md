@@ -8,7 +8,7 @@ Navrhnite a zostrojte zariadenie, ktoré bude počítať prejdenú vzdialenosť 
 
 ### Počítanie prejdenej vzdialenosti
 
-Na získavanie údajov o aktuánej polohe použite ľubovoľný GPS modul, ktorý bude s predurčenou frekvenicou získavať súradnice zariadenia a vhodnou metódou prepočíta prejdenú vzdialenosť.
+Na získavanie údajov o aktuánej polohe použite ľubovoľný GPS modul, ktorý bude s predurčenou frekvenciou získavať súradnice zariadenia a vhodnou metódou prepočíta prejdenú vzdialenosť.
 
 ### Selekcia jednotlivých jazdcov
 
