@@ -1,0 +1,5 @@
+../Core/Drivers/display_7seg/display_7seg.c:13:6:extractDigits	1
+../Core/Drivers/display_7seg/display_7seg.c:20:6:setDigit	5
+../Core/Drivers/display_7seg/display_7seg.c:52:6:writeNumber	2
+../Core/Drivers/display_7seg/display_7seg.c:91:6:writeDigit	5
+../Core/Drivers/display_7seg/display_7seg.c:111:6:handle_display	2

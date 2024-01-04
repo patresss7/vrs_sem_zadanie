@@ -40,6 +40,7 @@ void MX_GPIO_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 void GPIO_set_pin(uint32_t PIN,uint8_t state);
+void GPIO_set_pin_with_mask(uint32_t PIN, uint8_t state, char mask);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

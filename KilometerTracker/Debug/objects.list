@@ -1,4 +1,5 @@
 "./Core/Drivers/RGB_led/RGB_led.o"
+"./Core/Drivers/display_7seg/display_7seg.o"
 "./Core/Src/gpio.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f3xx_hal_msp.o"

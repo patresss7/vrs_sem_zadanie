@@ -85,13 +85,35 @@ void MX_GPIO_Init(void)
 /* USER CODE BEGIN 2 */
 void GPIO_set_pin(uint32_t PIN,uint8_t state)
 {
-	if(state == 0)
-	{
+	if(state == 0){
 		LL_GPIO_ResetOutputPin(GPIOA, PIN);
 	}
 	else if(state == 1)
 	{
 		LL_GPIO_SetOutputPin(GPIOA, PIN);
+	}
+}
+
+
+void GPIO_set_pin_with_mask(uint32_t PIN, uint8_t state, char mask)
+{
+	if(state == 0)
+	{
+		if(mask == 'a')
+			LL_GPIO_ResetOutputPin(GPIOA, PIN);
+		else if(mask == 'b')
+			LL_GPIO_ResetOutputPin(GPIOB, PIN);
+		else if(mask == 'c')
+			LL_GPIO_ResetOutputPin(GPIOC, PIN);
+	}
+	else if(state == 1)
+	{
+		if(mask == 'a')
+			LL_GPIO_SetOutputPin(GPIOA, PIN);
+		else if(mask == 'b')
+			LL_GPIO_SetOutputPin(GPIOB, PIN);
+		else if(mask == 'c')
+			LL_GPIO_SetOutputPin(GPIOC, PIN);
 	}
 }
 /* USER CODE END 2 */
