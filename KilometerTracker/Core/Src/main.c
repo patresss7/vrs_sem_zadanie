@@ -23,7 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "../Drivers/RGB_led/RGB_led.h"
-#include "../Drivers/display_7seg/display_7seg.h"
+#include "../Drivers/display_7seg/display_7seg.h" 
+#include "../Drivers/button_module/button_module.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
