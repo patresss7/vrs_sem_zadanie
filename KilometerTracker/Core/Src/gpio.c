@@ -98,6 +98,16 @@ void GPIO_set_pin(uint32_t PIN,uint8_t state)
 	{
 		LL_GPIO_SetOutputPin(GPIOA, PIN);
 	}
+} 
+
+uint8_t GPIO_is_pin_set(uint32_t PIN, char mask)
+{
+	if(mask == 'a')
+		return LL_GPIO_IsInputPinSet(GPIOA, PIN);
+	else if(mask == 'b')
+		return LL_GPIO_IsInputPinSet(GPIOB, PIN);
+	else if(mask == 'c')
+		return LL_GPIO_IsInputPinSet(GPIOC, PIN);
 }
 
 
