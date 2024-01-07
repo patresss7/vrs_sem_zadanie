@@ -50,7 +50,14 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+struct USER {
+    uint8_t ID;
+    double distance;
+    double distance_km;
+    uint8_t red;
+    uint8_t green;
+    uint8_t blue;
+};
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

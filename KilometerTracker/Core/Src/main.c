@@ -47,7 +47,10 @@ void proccesDmaData(uint8_t sign);
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+struct USER current_user;
+struct USER user_A;
+struct USER user_B;
+struct USER user_C;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,7 +61,51 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void next_user()
+{
+    if(current_user.ID == user_A.ID)
+		current_user = user_B;
+	else if(current_user.ID == user_B.ID)
+		current_user = user_C;
+	else if(current_user.ID == user_C.ID)
+		current_user = user_A;
+}
 
+void save_user()
+{
+	if(current_user.ID == user_A.ID)
+		user_A = current_user;
+	else if(current_user.ID == user_B.ID)
+		user_B = current_user;
+	else if(current_user.ID == user_C.ID)
+		user_C = current_user;
+}
+
+void setup_users()
+{
+	user_A.ID = 0;
+	user_A.distance = 1234000.0;
+	user_A.distance_km = user_A.distance * 0.001;
+	user_A.red = 0;
+	user_A.green = 1;
+	user_A.blue = 1;
+
+	user_B.ID = 1;
+	user_B.distance = 0.0;
+	user_B.distance_km = user_B.distance * 0.001;
+	user_B.red = 1;
+	user_B.green = 0;
+	user_B.blue = 1;
+
+	user_C.ID = 2;
+	user_C.distance = 6969000.0;
+	user_C.distance_km = user_C.distance * 0.001;
+	user_C.red = 1;
+	user_C.green = 1;
+	user_C.blue = 0;
+
+	current_user = user_A;
+}
 /* USER CODE END 0 */
 
 /**
@@ -106,12 +153,27 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  set_RGB_led(0,1,0);
-    /* USER CODE END WHILE */
+    set_RGB_led(current_user.red,current_user.green,current_user.blue);
+    button_state = readButton();
+    if(button_state == BUTTON_STATE_PRESS)
+    {
+      next_user();
+    }
+    else if(button_state == BUTTON_STATE_LONG_PRESS)
+    {
+      current_user.distance = 0.0;
+      current_user.distance_km = 0.0;
+      save_user();
+    }    
+    handle_display((uint16_t)current_user.distance_km);
+  //	handle_display(temp_parse_progress);
+    last_position = current_position;
+    LL_mDelay(2);
+      /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
+      /* USER CODE BEGIN 3 */
+    }
+    /* USER CODE END 3 */
 }
 
 /**
