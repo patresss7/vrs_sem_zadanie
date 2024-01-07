@@ -19,7 +19,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/usart.h \
  ../Core/Inc/gpio.h ../Core/Src/../Drivers/RGB_led/RGB_led.h \
  ../Core/Src/../Drivers/display_7seg/display_7seg.h \
- ../Core/Src/../Drivers/button_module/button_module.h
+ ../Core/Src/../Drivers/button_module/button_module.h \
+ ../Core/Src/../Drivers/OKY3552/OKY3552.h \
+ ../Core/Src/../Drivers/GPS_data_handling/GPS_data_handling.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_dma.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:
@@ -45,3 +47,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Src/../Drivers/RGB_led/RGB_led.h:
 ../Core/Src/../Drivers/display_7seg/display_7seg.h:
 ../Core/Src/../Drivers/button_module/button_module.h:
+../Core/Src/../Drivers/OKY3552/OKY3552.h:
+../Core/Src/../Drivers/GPS_data_handling/GPS_data_handling.h:

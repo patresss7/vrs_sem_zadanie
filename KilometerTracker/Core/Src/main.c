@@ -27,6 +27,8 @@
 #include "../Drivers/RGB_led/RGB_led.h"
 #include "../Drivers/display_7seg/display_7seg.h" 
 #include "../Drivers/button_module/button_module.h"
+#include "../Drivers/OKY3552/OKY3552.h"
+#include "../Drivers/GPS_data_handling/GPS_data_handling.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -36,7 +38,9 @@ void proccesDmaData(uint8_t sign);
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define ERROR_TRAVELED_DISTANCE_THRESHOLD_METERS	5000.0
+#define GPS_2D_FIX									1
+#define GPS_NO_FIX									0
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,6 +55,14 @@ struct USER current_user;
 struct USER user_A;
 struct USER user_B;
 struct USER user_C;
+uint8_t button_state = BUTTON_STATE_INACTIVE;
+uint8_t message = 0;
+uint16_t num = 0;
+struct position current_position;
+struct position last_position;
+struct Coordinate current_coordinate;
+struct Coordinate last_coordinate;
+double traveled_distance = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -165,10 +177,27 @@ int main(void)
       current_user.distance_km = 0.0;
       save_user();
     }    
-    handle_display((uint16_t)current_user.distance_km);
-  //	handle_display(temp_parse_progress);
-    last_position = current_position;
-    LL_mDelay(2);
+    current_position = get_device_position();
+	current_coordinate.latitude = current_position.LAT;
+	current_coordinate.longitude = current_position.LON;
+
+	last_coordinate.latitude = last_position.LAT;
+	last_coordinate.longitude = last_position.LON;
+
+	traveled_distance = haversineDistance(last_coordinate,current_coordinate);
+
+	if(traveled_distance < ERROR_TRAVELED_DISTANCE_THRESHOLD_METERS &&
+			current_position.fix != GPS_NO_FIX &&
+			last_position.fix != GPS_NO_FIX)
+	{
+		current_user.distance += traveled_distance;
+		current_user.distance_km = current_user.distance * 0.001;
+		save_user();
+	}
+
+	handle_display((uint16_t)current_user.distance_km);
+	last_position = current_position;
+	LL_mDelay(2);
       /* USER CODE END WHILE */
 
       /* USER CODE BEGIN 3 */
