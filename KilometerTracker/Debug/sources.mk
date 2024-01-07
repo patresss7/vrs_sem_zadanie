@@ -22,6 +22,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Core/Drivers/GPS_data_handling \
 Core/Drivers/RGB_led \
 Core/Drivers/button_module \
 Core/Drivers/display_7seg \

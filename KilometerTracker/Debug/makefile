@@ -15,6 +15,7 @@ RM := rm -rf
 -include Core/Drivers/display_7seg/subdir.mk
 -include Core/Drivers/button_module/subdir.mk
 -include Core/Drivers/RGB_led/subdir.mk
+-include Core/Drivers/GPS_data_handling/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

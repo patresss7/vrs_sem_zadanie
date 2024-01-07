@@ -34,12 +34,15 @@ extern "C" {
 
 /* USER CODE BEGIN Private defines */
 
+#define DMA_USART1_BUFFER_SIZE 128
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
+void USART1_CheckDmaReception(void);
+void USART1_RegisterCallback(void *callback);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus
