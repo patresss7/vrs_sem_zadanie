@@ -1,5 +1,7 @@
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:797:26:LL_GPIO_IsInputPinSet	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:878:22:LL_GPIO_SetOutputPin	16	static
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_ll_gpio.h:907:22:LL_GPIO_ResetOutputPin	16	static
 ../Core/Src/gpio.c:37:6:MX_GPIO_Init	40	static
-../Core/Src/gpio.c:86:6:GPIO_set_pin	16	static
-../Core/Src/gpio.c:98:6:GPIO_set_pin_with_mask	16	static
+../Core/Src/gpio.c:92:6:GPIO_set_pin	16	static
+../Core/Src/gpio.c:103:9:GPIO_is_pin_set	16	static
+../Core/Src/gpio.c:114:6:GPIO_set_pin_with_mask	16	static
