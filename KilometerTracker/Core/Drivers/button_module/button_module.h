@@ -17,7 +17,7 @@ typedef enum {
 
 #define PIN_BUTTON 			LL_GPIO_PIN_0
 #define PIN_BUTTON_MASK		'b' 
-#define SHORT_PRESS_SAMPLES 5
+#define SHORT_PRESS_SAMPLES 1
 #define LONG_PRESS_SAMPLES	500
 
 #define BUTTON_STATE_INACTIVE 	0
