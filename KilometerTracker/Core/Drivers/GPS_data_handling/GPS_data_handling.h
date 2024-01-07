@@ -9,8 +9,8 @@
 #define DRIVERS_GPS_DATA_HANDLING_GPS_DATA_HANDLING_H_
 
 struct Coordinate {
-    float latitude;
-    float longitude;
+    double latitude;
+    double longitude;
 };
 
 double haversineDistance(struct Coordinate coord1, struct Coordinate coord2);

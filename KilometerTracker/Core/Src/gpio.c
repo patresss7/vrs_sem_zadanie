@@ -90,16 +90,6 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 2 */
-void GPIO_set_pin(uint32_t PIN,uint8_t state)
-{
-	if(state == 0){
-		LL_GPIO_ResetOutputPin(GPIOA, PIN);
-	}
-	else if(state == 1)
-	{
-		LL_GPIO_SetOutputPin(GPIOA, PIN);
-	}
-} 
 
 uint8_t GPIO_is_pin_set(uint32_t PIN, char mask)
 {

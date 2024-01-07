@@ -29,6 +29,7 @@
 #include "../Drivers/button_module/button_module.h"
 #include "../Drivers/OKY3552/OKY3552.h"
 #include "../Drivers/GPS_data_handling/GPS_data_handling.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -159,6 +160,7 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   USART1_RegisterCallback(proccesDmaData);
+  setup_users();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -241,7 +243,7 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void proccesDmaData(uint8_t sign)
 {
-	//todo
+	parse_uart_character(sign);
 }
 /* USER CODE END 4 */
 
