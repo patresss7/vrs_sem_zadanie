@@ -32,10 +32,10 @@ double toRadians(double degree) {
 // Function to compute the Haversine distance between two coordinates
 double haversineDistance(struct Coordinate coord1, struct Coordinate coord2) {
     // Convert latitude and longitude from degrees to radians
-    double lat1 = toRadians(coord1.latitude);
-    double lon1 = toRadians(coord1.longitude);
-    double lat2 = toRadians(coord2.latitude);
-    double lon2 = toRadians(coord2.longitude);
+    double lat1 = toRadians(coord1.latitude / 100.0);
+    double lon1 = toRadians(coord1.longitude / 100.0);
+    double lat2 = toRadians(coord2.latitude / 100.0);
+    double lon2 = toRadians(coord2.longitude / 100.0);
 
     // Compute differences in coordinates
     double dlat = lat2 - lat1;
